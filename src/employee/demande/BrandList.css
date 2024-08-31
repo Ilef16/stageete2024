@@ -1,0 +1,51 @@
+/* Conteneur de la page */
+.page-wrapper {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Conteneur des cartes */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cartes par ligne */
+    gap: 20px; /* Espace entre les cartes */
+    margin-top: 20px;
+}
+
+/* Style de chaque carte */
+.card-item {
+    background-color: #F1F1F1; /* Couleur d'arrière-plan des cartes */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au survol de la carte */
+.card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Style du titre de la carte */
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fc8a4d; /* Couleur spécifique pour le titre */
+    margin-bottom: 10px;
+}
+
+/* Style des informations de la carte */
+.card-type, .card-order {
+    font-size: 14px;
+    color: #555; /* Couleur pour les informations */
+    margin: 5px 0;
+}
+
+/* Style du champ de recherche */
+.form-control {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
