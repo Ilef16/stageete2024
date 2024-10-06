@@ -54,12 +54,22 @@ const BrandList = () => {
     if (['CC', 'CP', 'CA'].includes(doctype)) {
       Swal.fire({
         icon: 'info',
-        title: 'Information',
-        text: 'No list available for this type at the moment.',
+        title: '<strong>Aucune Information Disponible</strong>',
+        html: `
+          <div style="font-size: 1rem; color: #5a5a5a;">
+            Désolé, il n'y a pas d'informations disponibles pour ce type.
+            <br><br>
+            <i style="font-size: 0.9rem;">Essayez un autre type ou contactez l'administrateur pour plus de détails.</i>
+          </div>
+        `,
+        showConfirmButton: true,
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#3085d6',
+        background: '#f0f8ff', // Light blue background
+       
       });
       return;
     }
-
     const token = localStorage.getItem("authToken");
     const ematricule = localStorage.getItem("ematricule"); // Get matricule from localStorage
 
@@ -225,13 +235,16 @@ const BrandList = () => {
                         <td>{item.EtatBP === "1" ? "Confirmée" : "Non Confirmée"}</td> {/* Display status based on EtatBP */}
                         <td>{item.EtatBP1 === "1" ? "Confirmée" : "Non Confirmée"}</td> {/* Display status based on EtatBP1 */}
                         <td>
-                          <button
-                            className="btn btn-danger"
-                            onClick={() => handleDelete(item.uniqueid)}
-                          >
-                            Delete
-                          </button>
-                        </td> {/* Added Delete button */}
+                          {/* Check if EtatBP and EtatBP1 are not both 1 */}
+                          {!(item.EtatBP === "1" && item.EtatBP1 === "1") && (
+                            <button
+                              className="btn btn-danger"
+                              onClick={() => handleDelete(item.uniqueid)}
+                            >
+                              Delete
+                            </button>
+                          )}
+                        </td>
                       </tr>
                     ))}
                   </tbody>

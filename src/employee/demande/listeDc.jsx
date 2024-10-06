@@ -64,7 +64,7 @@ const BrandList = () => {
   }, [isMounted]);
 
   const getButtonStyle = (checked) => ({
-    backgroundColor: checked ? "#4CAF50" : "#f44336",
+    backgroundColor: checked ? "#2a91ed" : "#ed822a",
     color: "white",
     border: "none",
     padding: "5px 10px",
@@ -208,7 +208,7 @@ const BrandList = () => {
             <div className="mb-3">
               <input
                 type="text"
-                placeholder="Search by Type GRH"
+                placeholder="Chercher par Type GRH"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="form-control"
